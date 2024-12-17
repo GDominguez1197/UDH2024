@@ -41,13 +41,14 @@ body.dark-mode {
 /* Estilos para el sidebar cuando está en modo oscuro */
 body.dark-mode .sidebar {
     background-color: #2C2C2C; /* Fondo oscuro del sidebar */
+    height: 100vh; /* 100% de la altura de la ventana del navegador */
 }
 
 /* Estilo para los elementos de la lista en modo oscuro */
 body.dark-mode .sidebar li {
     background: #333333; /* Fondo oscuro para los elementos de la lista */
-    width: 100%;
 }
+
 
 
 body.dark-mode .sidebar .text {
@@ -230,7 +231,7 @@ header .image-text .header-text {
 }
 
 /* Estilos para el círculo dentro del interruptor */
-/* Transición para el círculo dentro del interruptor */
+/* Estilos para el círculo dentro del interruptor */
 .switch::before {
     position: absolute;
     border-radius: 50%; /* Hace que el círculo sea redondo */
@@ -243,6 +244,31 @@ header .image-text .header-text {
     background: #fff; /* Fondo blanco para el círculo */
     transition: transform 0.3s ease; /* Transición suave para el movimiento del círculo */
 }
+
+/* Cuando el interruptor está activado (círculo a la derecha) */
+.toggle-switch input:checked + .switch::before {
+    transform: translate(20px, -50%); /* Mueve el círculo a la derecha cuando está activado */
+}
+
+/* Estilo cuando el sidebar está colapsado, ajusta el tamaño del botón de alternancia */
+.sidebar.collapsed header .toggle {
+    transform: rotate(180deg); /* Gira el botón 180 grados */
+    width: 20px; /* Reduce el tamaño del botón */
+    height: 20px; /* Reduce el tamaño del botón */
+}
+
+/* Estilo para el toggle del dark mode cuando el sidebar está colapsado */
+.sidebar.collapsed .toggle-switch {
+    width: 30px; /* Reduce el tamaño del interruptor */
+    height: 20px; /* Reduce el tamaño del interruptor */
+}
+
+/* Ajusta el tamaño del círculo en el interruptor cuando el sidebar está colapsado */
+.sidebar.collapsed .toggle-switch .switch::before {
+    width: 12px; /* Reduce el tamaño del círculo */
+    height: 12px; /* Reduce el tamaño del círculo */
+}
+
 
 /* Transición para los iconos de luna y sol */
 .moon-sun .moon,
